@@ -1,0 +1,28 @@
+# Angular / Node
+node_modules/
+dist/
+.angular/
+npm-debug.log
+*.log
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/*.iml
+android/app/release/
+android/app/debug/
+*.apk
+*.aab
+
+# IDE
+.vscode/
+*.suo
+*.user
+
+# Capacitor
+ios/

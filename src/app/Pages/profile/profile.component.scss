@@ -1,0 +1,134 @@
+.shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10) !important;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.pink {
+  background-color: #D9697D;
+}
+
+.gray {
+  color: #828282;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.flex-item-left {
+  flex: 45%;
+}
+
+.flex-item-right {
+  flex: 45%;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.company {
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  padding: 5px;
+}
+
+.btn {
+  border-radius: 10px;
+  min-height: 50px;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-form {
+  margin: auto;
+  min-width: 150px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.example-full-width {
+}
+
+
+
+table {
+  width: 100%;
+}
+
+.mat-column-name {
+  flex: 0 0 20%;
+}
+
+.olakase {
+  display:flex;
+  flex-direction:column;
+}
+
+.cont{
+    display:flex;
+    margin-left: 5%;
+    margin-right:5%;
+}
+
+mat-paginator {
+  background-color: white;
+  color: black;
+}
+
+::ng-deep .mat-mdc-paginator-navigation-previous .mat-mdc-paginator-icon,
+::ng-deep .mat-mdc-paginator-navigation-next .mat-mdc-paginator-icon,
+::ng-deep .mat-mdc-paginator-navigation-last .mat-mdc-paginator-icon,
+::ng-deep .mat-mdc-paginator-navigation-first .mat-mdc-paginator-icon {
+  fill: black;
+}
+
+::ng-deep .mat-paginator-page-size {
+  ::ng-deep .mat-select-value { // this is to change color of page size text in mat paginator
+    color: orange !important;
+  }
+
+  ::ng-deep .mat-select-trigger { // this is to change color of page size text in mat paginator
+    color: orange !important;
+  }
+
+  ::ng-deep .mat-select-arrow { // this is to change color of arrow beside pagesize in mat paginator
+    color: orange !important;
+  }
+}
+
+::ng-deep .mat-select-value {
+  fill: white !important;
+}
+
+::ng-deep #mat-select-0 {
+    color:black;
+}

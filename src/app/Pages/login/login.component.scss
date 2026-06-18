@@ -1,0 +1,94 @@
+.bold {
+  font-weight: 700;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+.shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10) !important;
+}
+
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.auth-card {
+  margin: 5em auto 5em;
+  max-width: 440px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5em 2em;
+}
+
+.example-form {
+  margin: auto;
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  flex: 1;
+}
+
+.text {
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+  color: #828282;
+}
+
+.btn {
+  border-radius: 10px;
+  min-height: 50px;
+  width: 100%;
+}
+
+.google {
+    display: flex;
+    justify-content: center;
+}
+
+.g_id_signin {
+  display: none;
+}
+
+.element {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ltxt {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: red !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: red !important;
+}

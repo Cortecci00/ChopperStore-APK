@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+// Manipulate initial background color
+
+a {
+  text-decoration: none;
+}
+
+.cart-badge .mat-badge-content {
+  background-color: #e53935 !important;
+  color: white !important;
+}
+
+.mat-mdc-dialog-surface, .mdc-dialog__surface {
+  background-color: white !important;
+  color: #333 !important;
+  border-radius: 14px !important;
+}
+
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 10px;
+}
+
+.mdc-text-field--focused .mdc-notched-outline > * {
+  border-color: #828282 !important;
+}
+
+.mdc-text-field--invalid .mdc-notched-outline > * {
+  border-color: red !important;
+}
+
+.mdc-text-field {
+  padding: 0px;
+}
+
+

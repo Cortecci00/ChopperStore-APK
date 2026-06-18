@@ -1,0 +1,96 @@
+<div style="text-align: center; margin-top: 4em;">
+  <h1 class="bold" style="font-family:Calibri;"> Perfil</h1>
+</div>
+
+<div style="margin-top: 4em;" class="flex-container">
+  <div class="flex-item-left">
+    <div style="display: flex; flex-direction:column; align-items:center; justify-content:center">
+      <img [src]="photoPreview ?? 'https://material.angular.io/assets/img/examples/shiba2.jpg'" class="company shadow">
+      <input #fileInput type="file" accept="image/*" hidden (change)="onFileSelected($event)" />
+      <button style="margin-top:2em;background-color: #D9697D; color: white;" class="btn shadow" mat-flat-button (click)="triggerFileInput()">Cargar foto</button>
+    </div>
+  </div>
+  <div class="flex-item-right">
+    <div class="container">
+      <form [formGroup]="formProfile" (ngSubmit)="saveProfile()" style="display: flex; flex-direction:column; align-items:center;">
+        <div class="example-form">
+          <p class="semibold">Nombre</p>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label style="color: #828282">Ingresá tu nombre</mat-label>
+            <input style="color: #828282" matInput formControlName="name" />
+          </mat-form-field>
+          <p class="semibold">Apellido</p>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label style="color: #828282">Ingresá tu apellido</mat-label>
+            <input style="color: #828282" matInput formControlName="lastname" />
+          </mat-form-field>
+          <p class="semibold">Mail</p>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label style="color: #828282">Ingresá tu mail</mat-label>
+            <input style="color: #828282" matInput formControlName="email" />
+          </mat-form-field>
+          <p class="semibold">Telefono</p>
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label style="color: #828282">Ingresá tu teléfono</mat-label>
+            <input style="color: #828282" matInput formControlName="phone" />
+          </mat-form-field>
+          <div style="display:flex;justify-content:center">
+            <button type="submit" style="margin-top:2em;background-color: #D9697D; color: white;" class="btn shadow" mat-flat-button [disabled]="formProfile.invalid">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAdmin" style="margin-top:2em; display:flex; justify-content:center">
+  <form [formGroup]="formSteam" (ngSubmit)="saveSteamTradeUrl()" style="display:flex; flex-direction:column; align-items:center;">
+    <p class="semibold">Steam Trade URL</p>
+    <mat-form-field appearance="outline" class="example-full-width" style="min-width:350px">
+      <mat-label style="color: #828282">Pegá tu Trade URL de Steam</mat-label>
+      <input style="color: #828282" matInput formControlName="steamTradeUrl" />
+    </mat-form-field>
+    <button type="submit" style="background-color: #D9697D; color: white;" class="btn shadow" mat-flat-button [disabled]="formSteam.invalid">Guardar Trade URL</button>
+  </form>
+</div>
+
+<h1 class="bold" style="font-family:Calibri; text-align:center; margin-top:2em"> Historial de compras</h1>
+<div>
+  <div style="margin-top:4em; border-radius:10px; padding:24px; margin-left:5%; margin-right:5%; margin-bottom:4em" class="mat-elevation-z8 shadow">
+    <table mat-table [dataSource]="dataSource" style="background-color:white">
+
+      <ng-container matColumnDef="date">
+        <th class="bold" style="color:black" mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td style="color:black" mat-cell *matCellDef="let element"> {{element.transactionDate | date:'short'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="product">
+        <th class="bold" style="color:black" mat-header-cell *matHeaderCellDef> Producto </th>
+        <td style="color:black" mat-cell *matCellDef="let element"> {{getItemNames(element)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th class="bold" style="color:black" mat-header-cell *matHeaderCellDef> Total </th>
+        <td style="color:black" mat-cell *matCellDef="let element"> ${{element.totalPrice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th class="bold" style="color:black" mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="element.paymentStatus === 'approved'" style="color:#2e7d32; font-weight:600">Pagado</span>
+          <span *ngIf="element.paymentStatus === 'pending'" style="color:#b8860b; font-weight:600">Pendiente</span>
+          <span *ngIf="element.paymentStatus === 'rejected'" style="color:#c62828; font-weight:600">Rechazado</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-divider></mat-divider>
+  <mat-paginator [length]="dataSource.data.length"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Historial de compras">
+  </mat-paginator>
+</div>
+</div>
