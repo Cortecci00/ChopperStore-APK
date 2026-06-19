@@ -10,12 +10,12 @@ import { ProductsComponent } from './Pages/products/products.component';
 import { RecommendationComponent } from './Pages/recommendation/recommendation.component';
 import { UsComponent } from './Pages/us/us.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
-import { AdminComponent } from './Pages/admin/admin.component';
 import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Pages/reset-password/reset-password.component';
+import { PaymentReturnComponent } from './Pages/payment-return/payment-return.component';
 import { authGuard } from './Guards/auth.guard';
-import { adminGuard } from './Guards/admin.guard';
 
+// La APK no expone el panel de administración (/admin), a diferencia del Website.
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'payment-return', component: PaymentReturnComponent, canActivate: [authGuard] },
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'contact', component: ContactComponent },
   { path: 'product/:id', component: ProductComponent },
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'recommendation', component: RecommendationComponent },
   { path: 'us', component: UsComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [authGuard, adminGuard] }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

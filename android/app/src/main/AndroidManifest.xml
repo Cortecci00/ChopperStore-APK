@@ -22,6 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!-- Android App Links: vuelve a la app cuando Mercado Pago redirige al sitio -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="chopperstore.leocortecci.com"
+                    android:pathPrefix="/payment-return" />
+            </intent-filter>
+
         </activity>
 
         <provider

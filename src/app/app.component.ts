@@ -4,6 +4,7 @@ import { IconSetService } from '@coreui/icons-angular';
 import { cilListNumbered, cilPaperPlane, brandSet } from '@coreui/icons';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
+import { App } from '@capacitor/app';
 import { AuthServiceTsService } from './Services/auth.service.ts.service';
 import { ShoppingCartService } from './Services/shopping-cart.service';
 
@@ -37,6 +38,13 @@ export class AppComponent {
         window.scrollTo(0, 0);
       }
     });
+
+    if (isPlatformBrowser(this._platformId)) {
+      App.addListener('appUrlOpen', (data) => {
+        const url = new URL(data.url);
+        this._router.navigateByUrl(url.pathname + url.search);
+      });
+    }
   }
 
   toggleMenu() {
